@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrabSO Division B Science Olympiad Invitational</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .date-location {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #764ba2;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #5a67d8;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .section p, .section li {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .info-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-card h4 {
+            color: #764ba2;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .event-item {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-weight: 500;
+        }
+
+        .timeline {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+        }
+
+        .timeline-date {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 140px;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-info a {
+            color: #bee3f8;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                padding: 25px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>CrabSO Division B Invitational</h1>
+            <div class="subtitle">Maryland's Premier Middle School Science Olympiad Competition</div>
+            <div class="date-location">February 15-22, 2025 | Online Competition</div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>Welcome to CrabSO!</h2>
+                <p>CrabSO (Crab Science Olympiad) provides a vital opportunity for Division B teams to sharpen their competitive edge before regional and state-level science competitions. Created specifically for middle school students, CrabSO offers another invitational competition to help teams prepare for their most important competitions of the year.</p>
+                
+                <p>CrabSO is part of <strong>Chesapeake Stem Connections</strong>, a 501(c)(3) registered Maryland-based nonprofit dedicated to supporting up-and-coming middle school Science Olympiad teams in Maryland. All proceeds from CrabSO are reinvested back into supporting Maryland teams, providing workshops, and funding future competitions.</p>
+
+                <div class="highlight-box">
+                    <h3>🦀 Why CrabSO?</h3>
+                    <p>Participants benefit from rigorous challenges, feedback from experienced organizers, and the opportunity to connect with fellow young scientists. Beyond competition, CrabSO fosters community among aspiring scientists and facilitates the exchange of ideas and experiences.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Competition Details</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>💰 Registration Fees</h4>
+                        <p><strong>$50</strong> per team for first 2 teams</p>
+                        <p><strong>$45</strong> per team for additional teams</p>
+                        <p><strong>FREE</strong> for teams from Title I schools</p>
+                        <p>No limit on number of teams per school!</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>📅 Competition Timeline</h4>
+                        <p><strong>Start:</strong> February 15, 2025 at 8:00 AM EDT</p>
+                        <p><strong>End:</strong> February 22, 2025 at 11:59 PM EDT</p>
+                        <p>One full week to complete all events!</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>🎯 Division B Events</h4>
+                        <p>Full slate of official Division B events for the 2024-2025 season</p>
+                        <p>Tests authored by experienced Science Olympiad competitors and alumni</p>
+                        <p>Detailed event information available in our event slate</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>🏆 Awards & Recognition</h4>
+                        <p>Official results posted on Duosmium</p>
+                        <p>Digital certificates for top performers</p>
+                        <p>Recognition for outstanding achievement</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Important Dates</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 3, 2025</div>
+                        <div class="timeline-content">Registration Deadline (11:59 PM EDT)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 15, 2025</div>
+                        <div class="timeline-content">Competition Begins (8:00 AM EDT)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 22, 2025</div>
+                        <div class="timeline-content">Competition Ends (11:59 PM EDT)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Late Feb 2025</div>
+                        <div class="timeline-content">Results Published & Awards Distributed</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>⚠️ Registration Status: CLOSED</h3>
+                    <p>Registration for the 2025 CrabSO Invitational has closed. Thank you to all participating teams! Results and information about future competitions will be posted here.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Division B Events</h2>
+                <p>CrabSO features the complete slate of Division B events for the 2024-2025 Science Olympiad season:</p>
+                
+                <div class="event-list">
+                    <div class="event-item">🔬 Anatomy & Physiology</div>
+                    <div class="event-item">🏗️ Bridge</div>
+                    <div class="event-item">🌱 Disease Detectives</div>
+                    <div class="event-item">🌍 Dynamic Planet</div>
+                    <div class="event-item">⚡ Electric Vehicle</div>
+                    <div class="event-item">🧬 Experimental Design</div>
+                    <div class="event-item">🌊 Fluids</div>
+                    <div class="event-item">🔍 Forensics</div>
+                    <div class="event-item">🌿 Forestry</div>
+                    <div class="event-item">🧮 Metric Mastery</div>
+                    <div class="event-item">🔬 Microbes</div>
+                    <div class="event-item">⚗️ Mystery Science</div>
+                    <div class="event-item">🏃 Optics</div>
+                    <div class="event-item">🌟 Remote Sensing</div>
+                    <div class="event-item">🏃 Robot Tour</div>
+                    <div class="event-item">🌙 Solar System</div>
+                    <div class="event-item">🏃 Tower</div>
+                    <div class="event-item">🦆 Ecology</div>
+                    <div class="event-item">🔧 Machines</div>
+                    <div class="event-item">📊 Data Analysis</div>
+                    <div class="event-item">🌡️ Thermodynamics</div>
+                    <div class="event-item">🏗️ Wright Stuff</div>
+                    <div class="event-item">📝 Write It Do It</div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="https://scilympiad.com/crabso/Student/StudentDB" class="btn">Student Dashboard</a>
+                <a href="https://www.duosmium.org/results/2025-02-15_crabso_invitational_b/" class="btn secondary">View Results</a>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Questions about CrabSO? We're here to help!</p>
+                <p>Email: <a href="mailto:crabscioly@gmail.com">crabscioly@gmail.com</a></p>
+                <p>Learn more about Chesapeake Stem Connections and upcoming opportunities</p>
+            </div>
+
+            <div class="section">
+                <h2>About Chesapeake Stem Connections</h2>
+                <p>Chesapeake Stem Connections is a 501(c)(3) registered Maryland-based nonprofit organization dedicated to supporting up-and-coming middle school Science Olympiad teams throughout Maryland. Our mission includes:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>💡 Financial Support</h4>
+                        <p>Providing financial assistance to Maryland Science Olympiad teams to help reduce barriers to participation</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>🎓 Educational Workshops</h4>
+                        <p>Offering training sessions and workshops to help students and coaches improve their Science Olympiad skills</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>🏆 Competition Funding</h4>
+                        <p>Supporting and organizing future in-person Science Olympiad competitions for Maryland students</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>🤝 Community Building</h4>
+                        <p>Creating opportunities for Maryland Science Olympiad teams to connect, collaborate, and learn from each other</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 CrabSO Invitational | Powered by Chesapeake Stem Connections</p>
+            <p>Fostering the next generation of Maryland scientists 🦀</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for any navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add hover effects for info cards
+        const infoCards = document.querySelectorAll('.info-card');
+        infoCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
